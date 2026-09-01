@@ -109,7 +109,7 @@ sistema de propagació entre NPCs.
 
 ## El disseny
 
-El pes d'este projecte no és el codi —són quatre-centes línies— sinó el disseny.
+El pes d'este projecte no és el codi —són tres-centes seixanta línies— sinó el disseny.
 
 | | |
 |---|---|

@@ -59,7 +59,7 @@ joc. Que la seua eixida siga llegible a l'ull: és una eina d'ajust, no un test 
 
 ## Què no fer
 
-- ❌ Muntar CI, cobertura o un marc de proves gran. El projecte té 460 línies.
+- ❌ Muntar CI, cobertura o un marc de proves gran. El projecte té 360 línies.
 - ❌ Provar `sortida/text.py` cadena a cadena: eixe text és provisional per definició.
 - ❌ Escriure proves del motor **abans** de tancar D1 i D2 de [`07`](07-decisions-obertes.md).
   Provar un contracte que encara no s'ha ratificat és feina que es llança.
@@ -68,4 +68,4 @@ joc. Que la seua eixida siga llegible a l'ull: és una eina d'ajust, no un test 
 
 `unittest` (a la biblioteca estàndard, zero dependències, encaixa amb *«zero dependències
 que no facen falta»*) contra `pytest` (millors assercions, una dependència més). No està
-decidit. Amb 460 línies, `unittest` sembla el que toca — però és una decisió, no un fet.
+decidit. Amb 360 línies, `unittest` sembla el que toca — però és una decisió, no un fet.

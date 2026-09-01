@@ -1,6 +1,6 @@
 # 01 — Arquitectura
 
-Estat: **v0 jugable**. ~460 línies de Python, 4 YAML, zero dependències excepte `pyyaml`.
+Estat: **v0 jugable**. ~360 línies de Python, 4 YAML, zero dependències excepte `pyyaml`.
 
 ---
 

@@ -13,7 +13,7 @@ pròxima sessió no torne a obrir discussions ja tancades.
 ## Context
 
 Punt de partida: `CLAUDE.md` + `docs/disseny.md` (512 línies, el document mestre) +
-`docs/v0.md` + ~460 línies de Python jugables. Tot correcte i tot **desconnectat**: no hi
+`docs/v0.md` + ~360 línies de Python jugables. Tot correcte i tot **desconnectat**: no hi
 havia porta d'entrada, ni registre de decisions, ni cap lloc on visquera *què hi ha
 construït ara* — només *per què ha de ser així*.
 
@@ -66,7 +66,7 @@ auditoria del codi contra el disseny, correccions factuals a `CLAUDE.md`, `.giti
 ## Riscos
 
 - **Cerimònia.** `CLAUDE.md` diu *zero frameworks, no abstraure fins que hi haja tres
-  casos*. Deu fitxers de documentació per a 460 línies de codi ho podrien contradir.
+  casos*. Deu fitxers de documentació per a 360 línies de codi ho podrien contradir.
   Mitigació: el pes real d'este projecte és el **disseny** (>30 KB), no el codi, i cada
   ref conté informació que abans només vivia dins del cap d'algú o dins del codi.
 - **Documentació que envellix.** El pitjor resultat possible és un ref que menta. Mitigació:

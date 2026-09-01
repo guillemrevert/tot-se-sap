@@ -12,7 +12,7 @@ muntanya de ~200 habitants. No portes placa: l'única moneda que tens és **la i
 El que li arranques a un NPC és la munició per arrancar-li informació al següent.
 
 **Estat: v0 — prototip de terminal jugable.** 3 NPCs, 8 fets, un cas de mentida (`cas_prova`).
-~460 línies de Python. L'objectiu del v0 no és el joc: és saber si el bucle de conversa és divertit.
+~360 línies de Python. L'objectiu del v0 no és el joc: és saber si el bucle de conversa és divertit.
 
 ---
 
