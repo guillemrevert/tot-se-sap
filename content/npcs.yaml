@@ -1,0 +1,88 @@
+# cas_prova — BASTIDA.
+#
+# El triangle de §2.3: els TRES saben `f_clau_penjada` i callen per motius
+# distints. Roc per POR (l'assenyala), Neus perquè PROTEGEIX Roc, Silvestre
+# perquè en vol traure PROFIT. Tres eixos per al mateix fet.
+
+silvestre:
+  nom: Silvestre
+  ofici: pastor
+  lloc: El corral de dalt
+  presentació: "Assegut a la pedra, amb el gaiato entre les cames. Content de veure algú."
+  estat: { intimidació: 0, confiança: 15, temptació: 0 }
+  ruptura: 70
+  vulnerable_a: []
+  sap:
+    f_llum_cooperativa: INDIFERENT
+    f_roc_va_pagar: INDIFERENT
+    f_clau_penjada: PROFIT
+  respostes:
+    sec:
+      - "Jo? Jo estic ací dalt amb les ovelles, poca cosa veig."
+      - "Home, coses se'n diuen, però jo no faig cas."
+    obert:
+      - "Ah, mire, ja que hi som..."
+      - "Això sí que li ho puc contar."
+    interessat:
+      - "No, si jo diners no en vull... bé, si insistix."
+      - "Depén. Que un és vell però no és tonto."
+    pressionat:
+      - "Ei, ei, que a mi no em cal que em pegue crits."
+      - "Jo no he fet res, home, jo no he fet res."
+    ruptura: "Silvestre agafa el gaiato i se'n va cap al corral sense girar-se. No tornarà a parlar amb tu."
+
+neus:
+  nom: Neus
+  ofici: comptes de la cooperativa
+  lloc: La cooperativa
+  presentació: "Darrere d'una taula plena de carpetes. Et parla de vosté i no alça la vista."
+  estat: { intimidació: 0, confiança: 20, temptació: 0 }
+  ruptura: 85
+  vulnerable_a: [f_caixa_no_forcada, f_neus_te_clau, f_neus_deu_favor]
+  sap:
+    f_caixa_no_forcada: INDIFERENT
+    f_neus_te_clau: POR
+    f_clau_penjada: PROTEGEIX
+    f_neus_deu_favor: PROTEGEIX
+  respostes:
+    sec:
+      - "Els comptes estan en ordre, si és això que ve a mirar."
+      - "No sé què vol que li diga."
+    obert:
+      - "Li ho dic perquè em pareix que vosté no és mala persona."
+      - "Escolte'm bé, que això no ho he dit mai."
+    interessat:
+      - "I això a mi què em reporta?"
+      - "Depén del que hi haja a l'altre costat de la taula."
+    pressionat:
+      - "No em parle així."
+      - "Si em vol acusar d'alguna cosa, digueu-ho clar d'una vegada."
+    ruptura: "Neus tanca la carpeta de colp. «Ja n'hi ha prou.» I es queda mirant la paret. No tornarà a parlar amb tu."
+
+roc:
+  nom: Roc
+  ofici: taverner
+  lloc: La taverna
+  presentació: "Darrere de la barra, secant got rere got. No et mira."
+  estat: { intimidació: 0, confiança: 5, temptació: 0 }
+  ruptura: 90
+  vulnerable_a: [f_roc_va_pagar, f_roc_deu_diners, f_clau_penjada, f_neus_deu_favor]
+  sap:
+    f_roc_deu_diners: POR
+    f_clau_penjada: POR
+    f_neus_deu_favor: PROFIT
+    f_autoria: POR
+  respostes:
+    sec:
+      - "Ací la gent ve a beure, no a parlar."
+      - "Pregunta-li a un altre."
+    obert:
+      - "Mira, et diré una cosa, però no ix d'ací."
+      - "..."
+    interessat:
+      - "Depén de què em portes."
+      - "Tot té un preu. També el silenci."
+    pressionat:
+      - "Baixa la veu, que hi ha gent."
+      - "No em busques les voltes, detectiu."
+    ruptura: "Roc deixa el got a la barra. «Fora de la meua taverna.» No tornarà a parlar amb tu."

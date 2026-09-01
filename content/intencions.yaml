@@ -1,0 +1,36 @@
+# Les 6 intencions. UNA plantilla cadascuna (v0). Text lleig a posta.
+#
+# `forma` = quina forma gramatical del fet demana la plantilla:
+#   subordinada -> "que la clau es queda penjada darrere de la barra"
+#   nominal     -> "la clau penjada darrere de la barra"
+
+AMENAÇAR:
+  deltes: { intimidació: 25, confiança: -15 }
+  forma: subordinada
+  plantilla: "Hi ha gent en este poble a qui li interessaria saber {subordinada}."
+
+OFERIR:
+  deltes: { temptació: 20, intimidació: 5 }
+  forma: nominal
+  plantilla: "Jo em puc oblidar de {nominal}. Depén de tu."
+
+EMPATITZAR:
+  deltes: { confiança: 20, intimidació: 5 }
+  forma: subordinada
+  plantilla: "Sé {subordinada}. I sé que això no te l'has buscat tu."
+
+CONFRONTAR:
+  deltes: { confiança: -10, intimidació: 15 }
+  forma: subordinada
+  plantilla: "No em digues que no en saps res. Sé {subordinada}."
+
+INSINUAR:
+  deltes: { intimidació: 8 }
+  forma: nominal
+  plantilla: "Curiós, això de {nominal}. No trobes?"
+
+PREGUNTAR:
+  deltes: {}
+  forma: nominal
+  plantilla: "Què saps de {nominal}?"
+  obertura: "Vinc pel de la caixa de la cooperativa. Què me'n pots dir?"

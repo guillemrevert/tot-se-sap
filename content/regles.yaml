@@ -1,0 +1,37 @@
+# Tots els números del motor. Són de mentira: estan ací per tocar-los.
+# Canvia, torna a arrancar, juga. No cal tocar codi.
+
+# La postura de l'NPC sobre un fet decidix QUIN eix l'obri (§2.3).
+postura_eix:
+  PROTEGEIX: confiança      # calla per protegir algú -> només per confiança
+  POR: intimidació          # calla per por           -> només per pressió
+  PROFIT: temptació         # calla perquè en trau    -> només pagant
+  INDIFERENT: confiança     # no calla: és que li dona igual
+
+# Multiplicador sobre la dificultat del fet segons la postura.
+# L'INDIFERENT parla molt perquè es creu irrellevant (§9.3).
+dificultat_postura:
+  PROTEGEIX: 1.0
+  POR: 1.0
+  PROFIT: 1.0
+  INDIFERENT: 0.4
+
+# Degradació de la palanca contra UN NPC concret (§3.3).
+# Terra a 0.25 i no a 0: perds l'efecte sorpresa, no la partida.
+degradació: [1.0, 0.5, 0.25]
+
+# Quant val una carta segons si li fa mal a este NPC.
+pes_vulnerable: 1.5
+pes_normal: 1.0
+
+# Refredament per torn. La por es passa i una oferta damunt la taula
+# es refreda; la confiança guanyada no s'evapora sola.
+# Posa-ho tot a 0 i el refredament desapareix.
+refredament:
+  intimidació: 5
+  temptació: 3
+  confiança: 0
+
+# ...però no torna a zero: recorda qui eres. Fracció del màxim que has
+# arribat a fer-li, per baix de la qual ja no baixa. 0 = oblit total.
+terra_refredament: 0.4

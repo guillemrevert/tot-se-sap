@@ -1,0 +1,57 @@
+# cas_prova — BASTIDA. Això es tira. No confondre amb el cas de veres (§16.1).
+#
+# La veritat: Roc, el taverner, deu diners fora del poble. Neus, que porta els
+# comptes de la cooperativa, es deixa la clau penjada a la taverna quan baixa a
+# fer el vermut. Roc va agafar la caixa. Neus ho sospita i calla perquè li deu
+# un favor. Silvestre, el pastor, va veure llum aquella nit i no li dona cap
+# importància.
+#
+# `dificultat` és un sol número. Quin EIX l'obri ho decidix la postura de l'NPC.
+
+f_caixa_no_forcada:
+  nu: "la caixa no la van forçar: la van obrir amb clau"
+  subordinada: "que la caixa no la van forçar, que la van obrir amb clau"
+  nominal: "la caixa, que no la van forçar"
+  dificultat: 10
+
+f_llum_cooperativa:
+  nu: "hi havia llum a la cooperativa a les tres de la matinada del diumenge"
+  subordinada: "que hi havia llum a la cooperativa a les tres de la matinada"
+  nominal: "la llum de la cooperativa a les tres de la matinada"
+  dificultat: 15
+
+f_roc_va_pagar:
+  nu: "Roc va pagar un deute dilluns de matí, en efectiu"
+  subordinada: "que Roc va pagar un deute dilluns de matí, en efectiu"
+  nominal: "el deute que Roc va pagar dilluns en efectiu"
+  dificultat: 20
+
+f_neus_te_clau:
+  nu: "Neus té l'única còpia de la clau de la cooperativa"
+  subordinada: "que Neus té l'única còpia de la clau"
+  nominal: "la còpia de la clau que té Neus"
+  dificultat: 30
+
+f_roc_deu_diners:
+  nu: "Roc deu diners a gent de fora del poble"
+  subordinada: "que Roc deu diners a gent de fora del poble"
+  nominal: "els diners que Roc deu fora del poble"
+  dificultat: 40
+
+f_clau_penjada:
+  nu: "la clau es queda penjada darrere de la barra de la taverna mentre Neus fa el vermut"
+  subordinada: "que la clau es queda penjada darrere de la barra mentre Neus fa el vermut"
+  nominal: "la clau penjada darrere de la barra de la taverna"
+  dificultat: 50
+
+f_neus_deu_favor:
+  nu: "Neus li deu un favor gros a Roc"
+  subordinada: "que Neus li deu un favor gros a Roc"
+  nominal: "el favor que Neus li deu a Roc"
+  dificultat: 55
+
+f_autoria:
+  nu: "Roc va agafar la caixa de la cooperativa"
+  subordinada: "que vas ser tu qui va agafar la caixa"
+  nominal: "el que va passar de veres amb la caixa"
+  dificultat: 85
