@@ -11,7 +11,7 @@ Actualitzat: 01-09-2026.
 | D2 | Esquema de dades (`docs/v0.md` §6) | 🟡 resolt **de facto** al codi, sense ratificar | tocar `content/` |
 | D3 | Quant estat veu el jugador | 🔴 contradicció viva | UX, i la regla 8 |
 | D4 | El refredament global | 🟡 decidit al codi, no al disseny | la regla 6 |
-| D5 | Entorn: git, dependències, com s'executa | 🟡 F1 i F2 fetes (01-09-2026); falten llicències i CI | publicar |
+| D5 | ~~Entorn: git, dependències, com s'executa~~ | 🟢 **tancada** 01-09-2026 | — |
 | D6 | Llengua de la capa `.dev/` | 🟢 català (assumit, no confirmat) | res urgent |
 | D7 | La finestra de `f_autoria` | 🔴 el cas **no és guanyable jugant a l'obvi** | jugar-hi |
 | D8 | ~~Marc de proves~~ | 🟢 **tancada** 01-09-2026: `unittest` | — |
@@ -64,7 +64,7 @@ causa traçable és que has deixat de pressionar. És defensable, però és una 
 regla 6 i **no està escrita a `docs/disseny.md`**. O s'escriu allí, o el refredament passa
 a ser només de l'NPC amb qui parles.
 
-## D5 — Entorn 🟡
+## D5 — Entorn 🟢 tancada
 
 Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md).
 
@@ -91,12 +91,13 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
 - `.github/workflows/proves.yml`: passa les proves en Python 3.11 i 3.13, i té el pas del
   validador escrit i comentat, per a descomentar-lo el dia de F6.
 
-**Pendent:**
+L'entorn està muntat: es clona, s'arranca amb dues ordres i té proves. **Publicar-lo és un
+acte a banda, no una decisió**, i és l'únic que queda:
 
-- **Remot.** El repo és local: no s'ha publicat res, i **per tant la CI no s'ha executat mai**.
-  Està verificada fins on es pot sense GitHub: el YAML es llig, l'ordre és la mateixa que
-  la documentada, i tot el codi passa un `ast.parse` amb `feature_version=(3, 11)`.
-  El que no es pot verificar en local és el temps d'execució en 3.11.
+- ⏳ **Remot.** El repo és local. Fins que no es publique, la CI **no s'ha executat mai** i
+  el README té un `<aquest-repo>` de marcador. Verificat fins on es pot sense GitHub: el
+  YAML es llig, l'ordre coincidix amb la documentada, i tot el codi passa un `ast.parse`
+  amb `feature_version=(3, 11)` — sintaxi, no execució.
 - Versió mínima de Python: es declararà al README (3.11) i l'ha de verificar la CI.
 - ⚠️ El llançador `py` està instal·lat però **no és al PATH**, i el `python` del PATH és
   l'àlies de la Microsoft Store. Res del projecte ho necessita ja, però qualsevol ordre
