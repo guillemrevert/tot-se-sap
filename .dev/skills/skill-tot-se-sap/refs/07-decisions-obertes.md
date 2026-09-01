@@ -86,10 +86,17 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
 
 - 14 proves amb `unittest` en `proves/`. Tanca **D8**.
 
+**Fet l'01-09-2026 (F5):**
+
+- `.github/workflows/proves.yml`: passa les proves en Python 3.11 i 3.13, i té el pas del
+  validador escrit i comentat, per a descomentar-lo el dia de F6.
+
 **Pendent:**
 
-- **Remot.** El repo és local: no s'ha publicat res encara.
-- **CI** — F5, i no dirà res fins que existisca el validador (F6).
+- **Remot.** El repo és local: no s'ha publicat res, i **per tant la CI no s'ha executat mai**.
+  Està verificada fins on es pot sense GitHub: el YAML es llig, l'ordre és la mateixa que
+  la documentada, i tot el codi passa un `ast.parse` amb `feature_version=(3, 11)`.
+  El que no es pot verificar en local és el temps d'execució en 3.11.
 - Versió mínima de Python: es declararà al README (3.11) i l'ha de verificar la CI.
 - ⚠️ El llançador `py` està instal·lat però **no és al PATH**, i el `python` del PATH és
   l'àlies de la Microsoft Store. Res del projecte ho necessita ja, però qualsevol ordre

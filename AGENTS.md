@@ -93,9 +93,9 @@ són dos commits. Missatge d'una línia, imperatiu, en valencià.
 Llicències: **AGPL-3.0** el codi, **CC BY-NC-SA 4.0** el contingut (`content/`, `docs/`), i
 el nom fora de les dues ([`TRADEMARK.md`](TRADEMARK.md)). Si afiges un fitxer, mira quina li toca.
 
-⚠️ Encara **no hi ha remot ni CI** — F5 de
-[`.dev/plans/2026-09-01-entorn.md`](.dev/plans/2026-09-01-entorn.md). Fins llavors açò és
-un repo local i prou.
+⚠️ **No hi ha remot.** El repo és local, o siga que la CI de `.github/workflows/proves.yml`
+està escrita però **no s'ha executat mai**. Fins que es publique, la xarxa de seguretat
+de veres és passar les proves a mà.
 
 ---
 

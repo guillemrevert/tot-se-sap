@@ -14,6 +14,9 @@
 Cap de les dues prova el **contracte** del motor: està prohibit fins que D1 i D2 estiguen
 ratificades (veure més avall). Proven coses que seran certes passe el que passe.
 
+En CI van a `.github/workflows/proves.yml`, en Python 3.11 i 3.13. ⚠️ Eixe fitxer **no s'ha
+executat mai**: el repo encara no té remot.
+
 ⚠️ **El que seguix faltant és el validador**, i no és un descuit menor: `docs/v0.md` §5 el
 posa al **pas 3 de quatre** i diu explícitament *«ja — no al final»*. Es va saltar.
 

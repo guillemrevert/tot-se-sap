@@ -1,0 +1,47 @@
+# Proves de «Tot se sap».
+#
+# Açò existix sobretot per una raó: ser el forat on s'endolla el validador de
+# resolubilitat el dia que existisca (F6 del pla, espec al ref 08). Mentrestant
+# passa les proves de proves/, que és poc — i val més dir-ho que fer com si fora
+# molt.
+#
+# Linux i prou. El desenvolupament es fa en Windows, o siga que el que esta CI
+# ha de caçar és el contrari: que una cosa que va en Windows no vaja fora.
+
+name: proves
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  proves:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false          # que les dues versions informen, no la primera i para
+      matrix:
+        python: ["3.11", "3.13"]   # la mínima que declara el README, i l'última
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Instal·lar dependències
+        run: pip install -r requirements.txt
+
+      - name: Proves
+        # El -p no és opcional: els fitxers es diuen prova_*.py i el patró per
+        # defecte d'unittest és test*.py. Sense ell trobaria zero proves i
+        # eixiria amb OK, que és la pitjor manera possible de fallar.
+        run: python -m unittest discover -s proves -t . -p "prova_*.py" -v
+
+      # - name: Validador de resolubilitat
+      #   run: python validador.py
+      #
+      # ↑ Descomentar quan existisca. És el motiu de veres pel qual esta CI està
+      #   muntada: que no entre mai un canvi a content/ que deixe el cas sense solució.
