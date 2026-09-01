@@ -93,9 +93,8 @@ són dos commits. Missatge d'una línia, imperatiu, en valencià.
 Llicències: **AGPL-3.0** el codi, **CC BY-NC-SA 4.0** el contingut (`content/`, `docs/`), i
 el nom fora de les dues ([`TRADEMARK.md`](TRADEMARK.md)). Si afiges un fitxer, mira quina li toca.
 
-⚠️ **No hi ha remot.** El repo és local, o siga que la CI de `.github/workflows/proves.yml`
-està escrita però **no s'ha executat mai**. Fins que es publique, la xarxa de seguretat
-de veres és passar les proves a mà.
+Publicat a **https://github.com/guillemrevert/tot-se-sap**. Cada `push` a `main` passa les
+proves en Python 3.11 i 3.13 (`.github/workflows/proves.yml`).
 
 ---
 

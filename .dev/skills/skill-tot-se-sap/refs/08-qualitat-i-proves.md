@@ -14,8 +14,12 @@
 Cap de les dues prova el **contracte** del motor: està prohibit fins que D1 i D2 estiguen
 ratificades (veure més avall). Proven coses que seran certes passe el que passe.
 
-En CI van a `.github/workflows/proves.yml`, en Python 3.11 i 3.13. ⚠️ Eixe fitxer **no s'ha
-executat mai**: el repo encara no té remot.
+En CI van a `.github/workflows/proves.yml`, en Python 3.11 i 3.13, a cada `push` a `main`
+i a cada PR. **Verd des de l'01-09-2026.**
+
+Un detall que dona seguretat: `unittest` ix amb **codi 5** si no troba cap prova (Python
+3.12+). O siga que si algun dia algú lleva el `-p`, la feina de 3.13 **falla** en compte de
+dir `OK` en fals.
 
 ⚠️ **El que seguix faltant és el validador**, i no és un descuit menor: `docs/v0.md` §5 el
 posa al **pas 3 de quatre** i diu explícitament *«ja — no al final»*. Es va saltar.

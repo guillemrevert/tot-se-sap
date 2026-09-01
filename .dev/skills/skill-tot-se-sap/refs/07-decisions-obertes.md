@@ -91,13 +91,9 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
 - `.github/workflows/proves.yml`: passa les proves en Python 3.11 i 3.13, i té el pas del
   validador escrit i comentat, per a descomentar-lo el dia de F6.
 
-L'entorn està muntat: es clona, s'arranca amb dues ordres i té proves. **Publicar-lo és un
-acte a banda, no una decisió**, i és l'únic que queda:
+L'entorn està muntat i **publicat**: https://github.com/guillemrevert/tot-se-sap
 
-- ⏳ **Remot.** El repo és local. Fins que no es publique, la CI **no s'ha executat mai** i
-  el README té un `<aquest-repo>` de marcador. Verificat fins on es pot sense GitHub: el
-  YAML es llig, l'ordre coincidix amb la documentada, i tot el codi passa un `ast.parse`
-  amb `feature_version=(3, 11)` — sintaxi, no execució.
+Es clona, s'arranca amb dues ordres, té proves i la CI passa en verd en 3.11 i 3.13.
 - Versió mínima de Python: es declararà al README (3.11) i l'ha de verificar la CI.
 - ⚠️ El llançador `py` està instal·lat però **no és al PATH**, i el `python` del PATH és
   l'àlies de la Microsoft Store. Res del projecte ho necessita ja, però qualsevol ordre
