@@ -71,9 +71,11 @@ crus, llindars pendents) · `q` eixir. El mode calibratge és l'única finestra 
 3. **Feina de més d'una sessió** → un pla a `.dev/plans/AAAA-MM-DD-nom.md` **abans** de començar.
 4. **Canvi de disseny** → `docs/disseny.md`. **Canvi d'abast** → `docs/v0.md`.
    Mai un canvi de disseny que només visca al codi.
-5. **Canvi de contingut** (`content/*.yaml`) → tornar a passar el validador de resolubilitat.
+5. **Qualsevol canvi** → passar les proves:
+   `python -m unittest discover -s proves -t . -p "prova_*.py"` (el `-p` fa falta).
+6. **Canvi de contingut** (`content/*.yaml`) → a més, el validador de resolubilitat.
    ⚠️ Encara no existix: [`refs/08-qualitat-i-proves.md`](.dev/skills/skill-tot-se-sap/refs/08-qualitat-i-proves.md).
-6. **En tancar sessió** → una entrada a `.dev/memories-log/`. Curta. Què s'ha decidit i què queda obert.
+7. **En tancar sessió** → una entrada a `.dev/memories-log/`. Curta. Què s'ha decidit i què queda obert.
 
 ---
 

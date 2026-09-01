@@ -15,6 +15,15 @@ python -m venv .venv
 .venv/Scripts/python.exe cli.py
 ```
 
+Passar les proves:
+
+```bash
+.venv/Scripts/python.exe -m unittest discover -s proves -t . -p "prova_*.py"
+```
+
+El `-p` no és opcional: els fitxers es diuen `prova_*.py` i el patró per defecte
+d'`unittest` és `test*.py`. Sense ell trobaria zero proves i et diria `OK`.
+
 `pyyaml` és l'única dependència i així ha de continuar. Si un canvi en necessita una altra,
 eixa és la conversa abans que el codi.
 

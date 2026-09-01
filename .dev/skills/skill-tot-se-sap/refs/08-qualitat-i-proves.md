@@ -1,10 +1,21 @@
 # 08 — Qualitat i proves
 
-**Estat actual: zero proves.** Cap fitxer de test, cap marc triat, cap comprovació
-automàtica. El que s'ha verificat s'ha verificat a mà o amb scripts d'usar i tirar.
+**Estat: 14 proves amb `unittest`, cap validador.** Es passen així —el `-p` no és opcional:
 
-Açò no és un descuit menor: `docs/v0.md` §5 posa el validador de resolubilitat al **pas 3
-de quatre**, i diu explícitament *«ja — no al final»*. Es va saltar.
+```bash
+.venv/Scripts/python.exe -m unittest discover -s proves -t . -p "prova_*.py"
+```
+
+| Fitxer | Què garantix |
+|---|---|
+| `proves/prova_invariant.py` | Que `motor/` no importa `sortida/` ni `cli`, que no té `print(` ni `input(`, i que `sortida/` no importa `motor`. **L'invariant central convertit en una cosa que falla sola.** |
+| `proves/prova_contingut.py` | Integritat referencial dels YAML: que cada `fet_id` de `sap` existix, que les postures són conegudes, que cada fet té les tres formes, que cada intenció demana una forma que la seua plantilla gasta, i que cada NPC té els quatre tons i la línia de ruptura. |
+
+Cap de les dues prova el **contracte** del motor: està prohibit fins que D1 i D2 estiguen
+ratificades (veure més avall). Proven coses que seran certes passe el que passe.
+
+⚠️ **El que seguix faltant és el validador**, i no és un descuit menor: `docs/v0.md` §5 el
+posa al **pas 3 de quatre** i diu explícitament *«ja — no al final»*. Es va saltar.
 
 ---
 
@@ -59,13 +70,23 @@ joc. Que la seua eixida siga llegible a l'ull: és una eina d'ajust, no un test 
 
 ## Què no fer
 
-- ❌ Muntar CI, cobertura o un marc de proves gran. El projecte té 360 línies.
+- ❌ Cobertura, marques de qualitat o un marc de proves gran. El projecte té 360 línies.
+  (La CI de F5 sí que va, però com a forat on endollar el validador, no per la insígnia verda.)
 - ❌ Provar `sortida/text.py` cadena a cadena: eixe text és provisional per definició.
 - ❌ Escriure proves del motor **abans** de tancar D1 i D2 de [`07`](07-decisions-obertes.md).
   Provar un contracte que encara no s'ha ratificat és feina que es llança.
 
-## Decidir: quin marc
+## Marc: `unittest` (decidit l'01-09-2026)
 
-`unittest` (a la biblioteca estàndard, zero dependències, encaixa amb *«zero dependències
-que no facen falta»*) contra `pytest` (millors assercions, una dependència més). No està
-decidit. Amb 360 línies, `unittest` sembla el que toca — però és una decisió, no un fet.
+De la biblioteca estàndard, zero dependències, encaixa amb *«zero dependències que no facen
+falta»*. `pytest` dona millors assercions a canvi d'una dependència més, i amb 360 línies
+no es notaria. Tanca **D8**.
+
+Tres detalls que costen mitja hora si no els saps:
+
+- Els fitxers es diuen `prova_*.py` i el patró per defecte és `test*.py`. **Sense `-p`,
+  `discover` troba zero proves i ix amb `OK`** — el pitjor error possible en una eina de proves.
+- `proves/` necessita un `__init__.py` buit, com `motor/` i `sortida/`. Sense ell,
+  `discover -t .` no pot importar la carpeta.
+- Les classes porten `longMessage = False` perquè el missatge nostre substituïsca el
+  d'`unittest`, que en un `assertIn` bolcaria el diccionari de fets sencer per pantalla.

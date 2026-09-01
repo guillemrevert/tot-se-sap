@@ -3,7 +3,7 @@
 **Llig açò abans de proposar arquitectura.** Una decisió que no està ací és que ja està
 presa (a `CLAUDE.md` o a `docs/disseny.md`) i no s'ha de tornar a obrir.
 
-Actualitzat: 31-08-2026.
+Actualitzat: 01-09-2026.
 
 | # | Decisió | Estat | Bloqueja |
 |---|---|---|---|
@@ -14,7 +14,7 @@ Actualitzat: 31-08-2026.
 | D5 | Entorn: git, dependències, com s'executa | 🟡 F1 i F2 fetes (01-09-2026); falten llicències i CI | publicar |
 | D6 | Llengua de la capa `.dev/` | 🟢 català (assumit, no confirmat) | res urgent |
 | D7 | La finestra de `f_autoria` | 🔴 el cas **no és guanyable jugant a l'obvi** | jugar-hi |
-| D8 | Marc de proves | 🔴 no n'hi ha cap | el validador §15 |
+| D8 | ~~Marc de proves~~ | 🟢 **tancada** 01-09-2026: `unittest` | — |
 
 ---
 
@@ -74,7 +74,6 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
 - `.venv` + `requirements.txt`. `pyyaml` ja no depén de la instal·lació global.
 - `jugar.bat` ja no porta cap ruta d'esta màquina: tria el `.venv` o `py -3`.
 - Decidit: **aplicació, no llibreria** — res d'empaquetat, `requirements.txt` i prou.
-  (La guia proposa `unittest` per a D8, però D8 no es tanca fins que es faça F3.)
 
 **Fet l'01-09-2026 (F4):**
 
@@ -82,6 +81,10 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
   per al nom. El patró ix de CritKeep (AGPL + política de marca), no del que proposava la
   guia, que deia MIT. Motiu: coherència entre projectes i copyleft fort sobre el motor.
 - README amb captura real del bucle, i CONTRIBUTING amb la cessió de drets per a contingut.
+
+**Fet l'01-09-2026 (F3):**
+
+- 14 proves amb `unittest` en `proves/`. Tanca **D8**.
 
 **Pendent:**
 
@@ -114,9 +117,13 @@ Tres eixides, i són de disseny, no de números:
 
 Es decidix quan el validador de §15 existisca i es puga veure què passa amb cada opció.
 
-## D8 — Proves 🔴
+## D8 — Proves 🟢 tancada
 
-Zero proves de cap tipus. Cap marc triat. Veure [`08`](08-qualitat-i-proves.md).
+`unittest` de la biblioteca estàndard, en `proves/`, amb 14 proves que passen. El detall i
+els dos paranys de `discover`, a [`08`](08-qualitat-i-proves.md).
+
+El que **no** cobrixen és el contracte del motor, i és a posta: D1 i D2 encara el poden
+canviar.
 
 ---
 
