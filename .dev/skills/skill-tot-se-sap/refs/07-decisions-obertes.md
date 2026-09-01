@@ -15,6 +15,7 @@ Actualitzat: 01-09-2026.
 | D6 | Llengua de la capa `.dev/` | 🟢 català (assumit, no confirmat) | res urgent |
 | D7 | La finestra de `f_autoria` | 🔴 el cas **no és guanyable jugant a l'obvi** | jugar-hi |
 | D8 | ~~Marc de proves~~ | 🟢 **tancada** 01-09-2026: `unittest` | — |
+| D9 | El motor, escrit dos vegades (`pagina/`) | 🟡 acceptat mentre no es trie plataforma | tocar el motor |
 
 ---
 
@@ -128,6 +129,18 @@ els dos paranys de `discover`, a [`08`](08-qualitat-i-proves.md).
 
 El que **no** cobrixen és el contracte del motor, i és a posta: D1 i D2 encara el poden
 canviar.
+
+## D9 — El motor està escrit dos vegades 🟡
+
+Des de l'01-09-2026 hi ha `pagina/`, un port a JavaScript perquè el joc es puga vore i
+tocar. **Cada canvi al motor s'ha de fer als dos llocs**, i res no ho comprova: la prova
+de `pagina/` només vigila que el **contingut** no es desquadre, no la lògica.
+
+Assumit a posta i amb data de caducitat: el port desapareix el dia que es trie plataforma
+—si és Python, es tira; si és web, es queda i el de Python passa a ser la referència.
+Mentrestant, **no toques el motor sense tocar els dos**.
+
+Detall a [`01-arquitectura.md`](01-arquitectura.md).
 
 ---
 

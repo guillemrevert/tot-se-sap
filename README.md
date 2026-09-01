@@ -86,6 +86,10 @@ python -m venv .venv
 
 A Windows, després del primer muntatge: doble clic a `jugar.bat`.
 
+**O al navegador:** obri `pagina/tot-se-sap.html`. És la mateixa partida amb els
+mateixos números, però es veu: les barres d'estat porten marcades les **panys** —els
+punts on hi ha alguna cosa amagada— i el llindar on eixa persona es tanca per sempre.
+
 Dependències: `pyyaml` i prou. Python 3.11 o superior.
 
 Dins del joc: `n` canviar d'interlocutor · `f` el que ja saps · `c` calibratge (ensenya els

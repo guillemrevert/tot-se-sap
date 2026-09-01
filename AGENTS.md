@@ -53,6 +53,12 @@ Cada dia: doble clic a `jugar.bat`, o bé
 .venv/Scripts/python.exe cli.py
 ```
 
+I al navegador, obrint `pagina/tot-se-sap.html`. Si has tocat `content/`, regenera-la abans:
+
+```bash
+.venv/Scripts/python.exe pagina/construix.py
+```
+
 Muntar l'entorn la primera vegada (i per què `python` a seques no val en esta màquina):
 [`.dev/plans/2026-09-01-entorn.md`](.dev/plans/2026-09-01-entorn.md) F2.
 
@@ -85,6 +91,7 @@ crus, llindars pendents) · `q` eixir. El mode calibratge és l'única finestra 
 - `sortida/` — l'única capa que toca cadenes.
 - `content/` — de qui escriu. **El codi no conté ni una línia de diàleg.**
 - `cli.py` — bucle de terminal. Provisional per definició.
+- `pagina/` — port a JavaScript, jugable al navegador. ⚠️ **Si toques el motor, toca'l ací també.**
 - Un canvi = una cosa. Si toques motor i contingut alhora, són dos canvis.
 
 És un repo git, branca `main`. **Un canvi = un commit**: si toques motor i contingut alhora,

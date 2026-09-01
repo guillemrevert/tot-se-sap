@@ -12,6 +12,7 @@ motor/carrega.py llig els YAML i els penja l'estat viu de la partida
 motor/nucli.py   (intenció, palanca) -> estat nou.  ← el cor. Zero text.
 sortida/text.py  estat -> cadenes. L'única capa que sap què és una lletra.
 cli.py           bucle de terminal, menús, pintat. Provisional per definició.
+pagina/          PORT a JavaScript: una pàgina jugable, autònoma. Veure més avall.
 ```
 
 Dependència en una direcció i prou:
@@ -26,6 +27,31 @@ content ──► carrega ──► nucli ──► (resultat) ──► text �
 que li passa `cli`. Si algun dia `nucli` importa `sortida`, l'invariant s'ha trencat.
 
 ---
+
+## `pagina/` — el port, i el que costa
+
+`pagina/plantilla.html` és el joc reescrit en JavaScript dins d'un sol fitxer, i
+`pagina/construix.py` li incrusta el contingut i escriu `pagina/tot-se-sap.html`.
+
+```bash
+python pagina/construix.py
+```
+
+Dues coses que han de quedar clares:
+
+- ✅ **El contingut no es duplica.** Ix sempre de `content/`, i `proves/prova_pagina.py`
+  **falla** si algú toca un YAML i no torna a generar. La promesa de «no poden
+  desquadrar-se» la sosté eixa prova, no la bona voluntat.
+- ⚠️ **La lògica sí que està escrita dos vegades.** El motor viu en Python i en
+  JavaScript, i **la separació motor/sortida ahí dins no està forçada per res**: és un
+  fitxer amb dues seccions retolades. Verificat el 01-09-2026 que els dos motors donen
+  el mateix resultat jugada a jugada, però és una foto, no una garantia.
+- ⚠️ **`Math.round` de JavaScript no és `round()` de Python** (l'un puja a l'alça i
+  l'altre arredonix a parell). La pàgina porta la seua pròpia funció `arrod()` per això.
+  Si algú la lleva, els números deixen de ser els del joc.
+
+El port és **tirable**: si la plataforma acaba sent Python, se'n va sencer i el contingut
+es queda. Si acaba sent web, ja està mig fet.
 
 ## La línia motor / sortida
 

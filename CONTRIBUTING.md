@@ -46,6 +46,10 @@ cas encara es puga acabar. ⚠️ El validador **encara no existix**: espec a
 [`.dev/skills/skill-tot-se-sap/refs/08-qualitat-i-proves.md`](.dev/skills/skill-tot-se-sap/refs/08-qualitat-i-proves.md).
 Mentre no hi siga, digues al PR com has comprovat que el cas seguix sent resoluble.
 
+**Si toques `content/` o el motor, regenera la pàgina**: `python pagina/construix.py`.
+Les proves fallen si te n'oblides. ⚠️ El motor està escrit dos vegades (Python i
+JavaScript) i **res no comprova que la lògica coincidisca** — només el contingut.
+
 **Si un canvi deixa fals un document, arreglar-lo és part del canvi**, no feina a banda.
 
 ## Estil

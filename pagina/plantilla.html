@@ -1,0 +1,459 @@
+<title>Tot se sap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,600;1,400&family=Archivo:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --paper:#EBEDE4; --panell:#E2E6D8; --relleu:#F4F5EF;
+  --tinta:#1E2A2E; --tinta-fluix:#5C6B68; --tinta-tenue:#8B968F;
+  --regle:#C6CDB9; --regle-fort:#AEB79F;
+  --intim:#A62F2B; --conf:#26606E; --temp:#A9721A;
+  --intim-fons:#A62F2B22; --conf-fons:#26606E22; --temp-fons:#A9721A22;
+  --mort:#8B968F;
+  --ombra:0 1px 0 #ffffff80, 0 2px 10px #1e2a2e12;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12181A; --panell:#1A2225; --relleu:#212B2E;
+    --tinta:#DEE4DB; --tinta-fluix:#95A29C; --tinta-tenue:#66736E;
+    --regle:#2C383A; --regle-fort:#3D4C4E;
+    --intim:#E0706A; --conf:#5FB3C4; --temp:#D9A441;
+    --intim-fons:#E0706A26; --conf-fons:#5FB3C426; --temp-fons:#D9A44126;
+    --mort:#66736E;
+    --ombra:0 1px 0 #ffffff08, 0 2px 12px #00000045;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12181A; --panell:#1A2225; --relleu:#212B2E;
+  --tinta:#DEE4DB; --tinta-fluix:#95A29C; --tinta-tenue:#66736E;
+  --regle:#2C383A; --regle-fort:#3D4C4E;
+  --intim:#E0706A; --conf:#5FB3C4; --temp:#D9A441;
+  --intim-fons:#E0706A26; --conf-fons:#5FB3C426; --temp-fons:#D9A44126;
+  --mort:#66736E;
+  --ombra:0 1px 0 #ffffff08, 0 2px 12px #00000045;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--tinta);
+  font-family:"Archivo",system-ui,sans-serif; font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--conf);outline-offset:2px}
+
+.tauler{max-width:1180px;margin:0 auto;padding:20px 18px 40px}
+
+/* ---- capçalera ---- */
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--regle-fort);padding-bottom:12px;margin-bottom:16px}
+h1{font-family:"Petrona",Georgia,serif;font-weight:600;font-size:26px;margin:0;letter-spacing:-.01em}
+.cas{color:var(--tinta-fluix);font-size:13.5px;flex:1;min-width:220px}
+.eines{display:flex;gap:8px;align-items:center}
+.interruptor{display:flex;align-items:center;gap:7px;font-size:12px;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--tinta-fluix);
+  border:1px solid var(--regle-fort);border-radius:2px;padding:5px 9px;white-space:nowrap}
+.interruptor[aria-pressed="true"]{background:var(--tinta);color:var(--paper);border-color:var(--tinta)}
+.torns{font-size:12px;color:var(--tinta-tenue);text-transform:uppercase;letter-spacing:.09em;
+  font-variant-numeric:tabular-nums}
+
+/* ---- pestanyes de gent ---- */
+.gent{display:flex;gap:2px;margin-bottom:14px;flex-wrap:wrap}
+.gent button{border:1px solid var(--regle);border-bottom:none;background:var(--panell);
+  padding:9px 15px;border-radius:3px 3px 0 0;text-align:left;position:relative;top:1px}
+.gent button strong{font-family:"Petrona",Georgia,serif;font-size:16px;font-weight:600;display:block}
+.gent button span{font-size:11.5px;color:var(--tinta-fluix);text-transform:uppercase;letter-spacing:.07em}
+.gent button[aria-selected="true"]{background:var(--relleu);border-color:var(--regle-fort);
+  box-shadow:inset 0 3px 0 var(--tinta)}
+.gent button.tancat{opacity:.5}
+.gent button.tancat strong{text-decoration:line-through}
+
+main{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:820px){ main{grid-template-columns:1fr} }
+
+.bloc{background:var(--relleu);border:1px solid var(--regle);border-radius:3px;
+  padding:16px;box-shadow:var(--ombra)}
+.retol{font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--tinta-tenue);
+  margin:0 0 10px}
+
+/* ---- fitxa de l'NPC ---- */
+.nom{font-family:"Petrona",Georgia,serif;font-size:24px;font-weight:600;margin:0;line-height:1.15}
+.ofici{color:var(--tinta-fluix);font-size:13px;margin:2px 0 0}
+.lloc{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--tinta-tenue);margin:8px 0 0}
+.presentacio{font-family:"Petrona",Georgia,serif;font-style:italic;font-size:14.5px;
+  color:var(--tinta-fluix);margin:12px 0 0;padding-top:12px;border-top:1px solid var(--regle)}
+
+.eixos{margin-top:16px;display:flex;flex-direction:column;gap:13px}
+.eix-cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.eix-nom{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em}
+.eix-val{font-size:12px;font-variant-numeric:tabular-nums;color:var(--tinta-fluix)}
+.barra{position:relative;height:16px;background:var(--panell);border:1px solid var(--regle);border-radius:2px}
+.ple{position:absolute;inset:1px auto 1px 1px;border-radius:1px;transition:width .35s cubic-bezier(.3,.8,.4,1)}
+.pany{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--tinta);
+  border-radius:1px;transform:translateX(-1px)}
+.pany::after{content:"";position:absolute;top:-3px;left:-2px;width:6px;height:6px;
+  background:var(--tinta);border-radius:50%}
+.pany.obert{background:var(--tinta-tenue);opacity:.35}
+.pany.obert::after{background:var(--tinta-tenue)}
+.eix-intimidació .ple{background:var(--intim)} .eix-intimidació .eix-nom{color:var(--intim)}
+.eix-confiança  .ple{background:var(--conf)}  .eix-confiança  .eix-nom{color:var(--conf)}
+.eix-temptació  .ple{background:var(--temp)}  .eix-temptació  .eix-nom{color:var(--temp)}
+.ruptura-marca{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--intim);opacity:.55}
+.peu-eix{font-size:11.5px;color:var(--tinta-tenue);margin-top:5px;font-variant-numeric:tabular-nums}
+
+.avis-tancat{margin-top:14px;padding:10px 12px;border-left:3px solid var(--intim);
+  background:var(--intim-fons);font-size:13.5px}
+
+/* ---- conversa ---- */
+.conversa{min-height:340px;display:flex;flex-direction:column;gap:14px;
+  max-height:min(52vh,460px);overflow-y:auto;scroll-behavior:smooth}
+.linia-tu .qui-parla{font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--tinta-tenue)}
+.linia-tu p{font-family:"Petrona",Georgia,serif;font-size:17px;margin:3px 0 0;
+  border-left:3px solid var(--regle-fort);padding-left:12px}
+.linia-npc .qui-parla{font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--tinta-fluix);font-weight:600}
+.linia-npc p{font-family:"Petrona",Georgia,serif;font-size:17px;margin:3px 0 0;padding-left:12px;
+  border-left:3px solid transparent}
+.mou{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0 12px}
+.mou span{font-size:11px;text-transform:uppercase;letter-spacing:.07em;padding:2px 7px;border-radius:2px;
+  font-variant-numeric:tabular-nums}
+.mou .up-intimidació{background:var(--intim-fons);color:var(--intim)}
+.mou .up-confiança{background:var(--conf-fons);color:var(--conf)}
+.mou .up-temptació{background:var(--temp-fons);color:var(--temp)}
+.mou .res{background:var(--panell);color:var(--tinta-tenue)}
+.troballa{margin:8px 0 0 12px;padding:9px 12px;background:var(--panell);
+  border-left:3px solid var(--conf);border-radius:0 2px 2px 0}
+.troballa b{font-family:"Petrona",Georgia,serif;font-weight:600;font-size:15px;display:block}
+.troballa em{font-style:normal;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--tinta-fluix)}
+.esdeveniment{font-size:13px;color:var(--tinta-fluix);text-align:center;padding:10px;
+  border-top:1px solid var(--regle);border-bottom:1px solid var(--regle)}
+.esdeveniment.fort{color:var(--intim);border-color:var(--intim);font-weight:600}
+
+/* ---- accions ---- */
+.accions{margin-top:16px}
+.mans{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:9px}
+.carta{border:1px solid var(--regle-fort);background:var(--relleu);border-radius:3px;
+  padding:11px 12px;text-align:left;display:flex;flex-direction:column;gap:7px;
+  transition:transform .12s,box-shadow .12s,border-color .12s}
+.carta:hover{transform:translateY(-2px);box-shadow:var(--ombra);border-color:var(--tinta-fluix)}
+.carta[aria-pressed="true"]{border-color:var(--tinta);box-shadow:inset 0 0 0 1px var(--tinta)}
+.carta .text{font-family:"Petrona",Georgia,serif;font-size:14.5px;line-height:1.3}
+.carta .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;
+  font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--tinta-tenue)}
+.gastat{letter-spacing:.18em;font-size:12px}
+.carta.buida .text{color:var(--tinta-fluix);font-style:italic}
+.pes{font-variant-numeric:tabular-nums}
+
+.intencions{margin-top:12px;border-top:1px dashed var(--regle-fort);padding-top:12px}
+.tria-feta{font-size:12.5px;color:var(--tinta-fluix);margin:0 0 10px}
+.tria-feta b{font-family:"Petrona",Georgia,serif;font-weight:600;font-size:14.5px;color:var(--tinta)}
+.llista-int{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.intencio{border:1px solid var(--regle-fort);border-radius:3px;padding:10px 12px;text-align:left;
+  display:flex;flex-direction:column;gap:5px;background:var(--relleu);transition:background .12s,border-color .12s}
+.intencio:hover{background:var(--panell);border-color:var(--tinta-fluix)}
+.intencio .et{font-weight:700;font-size:12.5px;letter-spacing:.08em}
+.intencio .fr{font-family:"Petrona",Georgia,serif;font-style:italic;font-size:13px;color:var(--tinta-fluix);line-height:1.35}
+.enrere{margin-top:10px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--tinta-fluix);
+  text-decoration:underline;text-underline-offset:3px}
+
+.final{margin-top:16px;padding:18px;border:2px solid var(--tinta);border-radius:3px;background:var(--relleu)}
+.final h2{font-family:"Petrona",Georgia,serif;font-size:21px;margin:0 0 6px}
+.final p{margin:0;color:var(--tinta-fluix);font-size:14px}
+.final button{margin-top:12px;border:1px solid var(--tinta);padding:7px 14px;border-radius:2px;
+  font-size:12px;text-transform:uppercase;letter-spacing:.09em}
+.final button:hover{background:var(--tinta);color:var(--paper)}
+
+.nota{margin-top:26px;padding-top:14px;border-top:1px solid var(--regle);
+  font-size:12.5px;color:var(--tinta-tenue);line-height:1.6}
+.nota b{color:var(--tinta-fluix)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="tauler">
+  <header>
+    <h1>Tot se sap</h1>
+    <div class="cas">Han robat la caixa de la cooperativa. No portes placa: l'única cosa que tens és el que et diguen.</div>
+    <div class="eines">
+      <span class="torns" id="torns">torn 0</span>
+      <button class="interruptor" id="gears" aria-pressed="true">Veure les tripes</button>
+    </div>
+  </header>
+
+  <nav class="gent" id="gent" role="tablist"></nav>
+
+  <main>
+    <section class="bloc" id="fitxa"></section>
+    <section class="bloc">
+      <p class="retol">Conversa</p>
+      <div class="conversa" id="conversa"></div>
+    </section>
+  </main>
+
+  <div class="accions bloc" id="accions"></div>
+
+  <p class="nota">
+    <b>Com es juga:</b> tries primer <b>de què li parles</b> (una carta que ja li has tret a algú)
+    i després <b>com li ho dius</b>. Les cartes es gasten contra cada persona: ●●● → ●●○ → ●○○.
+    Les marques negres damunt de les barres són <b>panys</b>: hi ha alguna cosa ahí,
+    però no saps què fins que l'obris. La línia roja de la barra d'intimidació és el punt
+    on eixa persona et tanca la porta <b>per sempre</b>.
+  </p>
+</div>
+
+<script>
+const DADES = /*__DADES__*/null;
+const EIXOS = ["intimidació","confiança","temptació"];
+
+/* Python arrodonix a parell (round-half-to-even) i JS no. Sense això els
+   números d'esta pàgina no serien els mateixos que els del joc de veres. */
+function arrod(x){
+  const f = Math.floor(x), d = x - f;
+  if (d > 0.5) return f + 1;
+  if (d < 0.5) return f;
+  return (f % 2 === 0) ? f : f + 1;
+}
+
+let mon, sel, palanca, registre, gears = true;
+
+function nouMon(){
+  mon = JSON.parse(JSON.stringify(DADES));
+  mon.obtinguts = {}; mon.torns = 0;
+  for (const npc of Object.values(mon.npcs)){
+    npc.desgast = {}; npc.maxims = {...npc.estat}; npc.tancat = false;
+  }
+  sel = Object.keys(mon.npcs)[0];
+  palanca = null; registre = [];
+}
+
+const postura = (n,f) => mon.npcs[n].sap[f];
+const eixDelFet = (n,f) => mon.regles.postura_eix[postura(n,f)];
+const llindar = (n,f) => arrod(mon.fets[f].dificultat * mon.regles.dificultat_postura[postura(n,f)]);
+
+function pes(n,f){
+  const npc = mon.npcs[n], r = mon.regles;
+  const base = npc.vulnerable_a.includes(f) ? r.pes_vulnerable : r.pes_normal;
+  const esc = r["degradació"];
+  return base * esc[Math.min(npc.desgast[f] || 0, esc.length - 1)];
+}
+function previsio(n,intencio,pal){
+  const p = pal ? pes(n,pal) : 0;
+  const out = {};
+  for (const [e,v] of Object.entries(mon.intencions[intencio].deltes)) out[e] = arrod(v * p);
+  return out;
+}
+function obri(n){
+  const npc = mon.npcs[n], nous = [];
+  for (const f of Object.keys(npc.sap)){
+    if (mon.obtinguts[f]) continue;
+    const e = eixDelFet(n,f);
+    if (npc.estat[e] >= llindar(n,f)){ mon.obtinguts[f] = {de:n, via:e}; nous.push(f); }
+  }
+  return nous;
+}
+function refreda(){
+  const r = mon.regles;
+  for (const npc of Object.values(mon.npcs))
+    for (const [e,q] of Object.entries(r.refredament)){
+      if (q <= 0) continue;
+      const terra = arrod(npc.maxims[e] * r.terra_refredament);
+      npc.estat[e] = Math.max(terra, npc.estat[e] - q);
+    }
+}
+function aplica(n,intencio,pal){
+  const npc = mon.npcs[n];
+  if (npc.tancat) return {deltes:{}, oberts:[], ruptura:false};
+  const deltes = previsio(n,intencio,pal);
+  for (const [e,v] of Object.entries(deltes)){
+    npc.estat[e] = Math.max(0, Math.min(100, npc.estat[e] + v));
+    npc.maxims[e] = Math.max(npc.maxims[e], npc.estat[e]);
+  }
+  if (pal) npc.desgast[pal] = (npc.desgast[pal] || 0) + 1;
+  mon.torns++;
+  if (npc.estat["intimidació"] >= npc.ruptura){ npc.tancat = true; return {deltes, oberts:[], ruptura:true}; }
+  const oberts = obri(n);
+  refreda();
+  return {deltes, oberts, ruptura:false};
+}
+
+/* ---- text ---- */
+const CONTRACCIONS = [[/\bde el\b/g,"del"],[/\bde els\b/g,"dels"],[/\ba el\b/g,"al"],
+  [/\ba els\b/g,"als"],[/\bper el\b/g,"pel"],[/\bper els\b/g,"pels"]];
+function concorda(s){
+  for (const [re,v] of CONTRACCIONS) s = s.replace(re,v);
+  return s.replace(/\bde ([aeiouàèéíòóú])/g,"d'$1");
+}
+function fraseJugador(intencio,pal){
+  const it = mon.intencions[intencio];
+  if (!pal) return it.obertura || "…";
+  return concorda(it.plantilla.replace("{"+it.forma+"}", mon.fets[pal][it.forma]));
+}
+function to(npc){
+  const e = npc.estat;
+  if (e["intimidació"] >= 60) return "pressionat";
+  if (e["temptació"] >= 50) return "interessat";
+  if (e["confiança"] >= 50) return "obert";
+  return "sec";
+}
+const cua = {};
+function resposta(n,res){
+  const npc = mon.npcs[n];
+  if (res.ruptura) return npc.respostes.ruptura;
+  const t = to(npc), clau = n + "/" + t, l = npc.respostes[t];
+  const i = cua[clau] || 0; cua[clau] = (i + 1) % l.length;
+  return l[i];
+}
+
+/* ---- pintar ---- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const marca = u => "●".repeat(3 - Math.min(u,2)) + "○".repeat(Math.min(u,2));
+
+function pintaGent(){
+  document.getElementById("gent").innerHTML = Object.entries(mon.npcs).map(([id,n]) =>
+    `<button role="tab" data-npc="${id}" aria-selected="${id===sel}" class="${n.tancat?"tancat":""}">
+       <strong>${esc(n.nom)}</strong><span>${esc(n.tancat ? "no et parla" : n.lloc)}</span>
+     </button>`).join("");
+}
+
+function pintaFitxa(){
+  const npc = mon.npcs[sel];
+  const panys = {};
+  for (const e of EIXOS) panys[e] = [];
+  for (const f of Object.keys(npc.sap)){
+    const e = eixDelFet(sel,f);
+    panys[e].push({v:llindar(sel,f), obert:!!mon.obtinguts[f]});
+  }
+  const barres = EIXOS.map(e => {
+    const v = npc.estat[e];
+    const marques = panys[e].map(p =>
+      `<i class="pany ${p.obert?"obert":""}" style="left:${p.v}%"
+          title="${p.obert?"ja obert":"hi ha alguna cosa ací"}${gears?" · "+p.v:""}"></i>`).join("");
+    const rup = e === "intimidació"
+      ? `<i class="ruptura-marca" style="left:${npc.ruptura}%" title="ruptura ${npc.ruptura}"></i>` : "";
+    const pend = panys[e].filter(p => !p.obert).map(p => p.v).sort((a,b)=>a-b);
+    const peu = gears && pend.length
+      ? `<div class="peu-eix">panys pendents: ${pend.join(" · ")}${e==="intimidació"?` · ruptura ${npc.ruptura}`:""}</div>` : "";
+    return `<div class="eix eix-${e}">
+       <div class="eix-cap"><span class="eix-nom">${e}</span>
+         <span class="eix-val">${gears ? v : ""}</span></div>
+       <div class="barra"><i class="ple" style="width:calc(${v}% - 2px)"></i>${marques}${rup}</div>${peu}
+     </div>`;
+  }).join("");
+
+  document.getElementById("fitxa").innerHTML = `
+    <p class="retol">Amb qui parles</p>
+    <h2 class="nom">${esc(npc.nom)}</h2>
+    <p class="ofici">${esc(npc.ofici)}</p>
+    <p class="lloc">${esc(npc.lloc)}</p>
+    <p class="presentacio">${esc(npc["presentació"])}</p>
+    <div class="eixos">${barres}</div>
+    ${npc.tancat ? `<div class="avis-tancat">S'ha tancat. No et tornarà a parlar en tota la partida.</div>` : ""}`;
+}
+
+function pintaConversa(){
+  const c = document.getElementById("conversa");
+  c.innerHTML = registre.length ? registre.map(r => {
+    if (r.tipus === "esdeveniment")
+      return `<div class="esdeveniment ${r.fort?"fort":""}">${esc(r.text)}</div>`;
+    const mou = Object.keys(r.deltes).length
+      ? Object.entries(r.deltes).map(([e,v]) =>
+          `<span class="up-${e}">${v>0?"puja":"fon"} ${e}${gears?` ${v>0?"+":""}${v}`:""}</span>`).join("")
+      : `<span class="res">no li fa res</span>`;
+    const trobat = r.oberts.map(f =>
+      `<div class="troballa"><b>${esc(mon.fets[f].nu)}</b><em>tret per ${esc(mon.obtinguts[f].via)}</em></div>`).join("");
+    return `<div class="linia-tu"><div class="qui-parla">Tu · ${esc(r.intencio)}</div><p>${esc(r.frase)}</p>
+              <div class="mou">${mou}</div></div>
+            <div class="linia-npc"><div class="qui-parla">${esc(mon.npcs[r.npc].nom)}</div>
+              <p>${esc(r.diu)}</p>${trobat}</div>`;
+  }).join("") : `<div class="esdeveniment">Encara no has obert la boca.</div>`;
+  c.scrollTop = c.scrollHeight;
+}
+
+function acabada(){
+  if (mon.obtinguts["f_autoria"]) return {t:"Ho tens.",
+    p:`Roc va agafar la caixa de la cooperativa. ${mon.torns} torns.`};
+  const qui = Object.keys(mon.npcs).filter(n => mon.npcs[n].sap["f_autoria"]);
+  if (qui.length && qui.every(n => mon.npcs[n].tancat)) return {t:"S'ha acabat.",
+    p:"L'únic que sabia qui va ser ja no et parla. El cas es queda obert."};
+  if (Object.values(mon.npcs).every(n => n.tancat)) return {t:"Els has cremat tots.",
+    p:"No queda ningú al poble amb qui parlar."};
+  return null;
+}
+
+function pintaAccions(){
+  const a = document.getElementById("accions");
+  const fi = acabada();
+  if (fi){
+    a.innerHTML = `<div class="final"><h2>${esc(fi.t)}</h2><p>${esc(fi.p)}</p>
+      <button id="reinicia">Tornar a començar</button></div>`;
+    return;
+  }
+  const npc = mon.npcs[sel];
+  if (npc.tancat){
+    a.innerHTML = `<p class="retol">Accions</p><p class="tria-feta">${esc(npc.nom)} no et parla. Tria una altra persona a dalt.</p>`;
+    return;
+  }
+  if (palanca === null){
+    const cartes = Object.keys(mon.obtinguts).map(f => {
+      const u = npc.desgast[f] || 0;
+      return `<button class="carta" data-pal="${f}">
+        <span class="text">${esc(mon.fets[f].nu)}</span>
+        <span class="meta"><span class="gastat">${marca(u)}</span>
+          <span class="pes">${gears ? "×" + pes(sel,f).toFixed(2) : ""}</span></span></button>`;
+    }).join("");
+    a.innerHTML = `<p class="retol">De què li parles?</p>
+      <div class="mans">${cartes}
+        <button class="carta buida" data-pal=""><span class="text">De res concret — només preguntar</span>
+        <span class="meta"><span></span><span class="pes">${gears?"sense carta":""}</span></span></button>
+      </div>`;
+    return;
+  }
+  const noms = palanca ? Object.keys(mon.intencions) : ["PREGUNTAR"];
+  const items = noms.map(nm => {
+    const d = previsio(sel,nm,palanca);
+    const mou = Object.keys(d).length
+      ? Object.entries(d).map(([e,v]) => `${v>0?"puja":"fon"} ${e}${gears?` ${v>0?"+":""}${v}`:""}`).join(" · ")
+      : "no li fa res";
+    return `<button class="intencio" data-int="${nm}">
+      <span class="et">${nm}</span>
+      <span class="fr">«${esc(fraseJugador(nm,palanca))}»</span>
+      <span class="meta">${esc(mou)}</span></button>`;
+  }).join("");
+  a.innerHTML = `<p class="retol">Com li ho dius?</p>
+    <p class="tria-feta">Li parles de <b>${esc(palanca ? mon.fets[palanca].nu : "res concret")}</b></p>
+    <div class="llista-int">${items}</div>
+    <button class="enrere" id="enrere">← triar una altra cosa</button>`;
+}
+
+function pinta(){
+  document.getElementById("torns").textContent = "torn " + mon.torns;
+  pintaGent(); pintaFitxa(); pintaConversa(); pintaAccions();
+}
+
+function juga(intencio){
+  const npc = mon.npcs[sel];
+  const frase = fraseJugador(intencio,palanca);
+  const res = aplica(sel,intencio,palanca);
+  const diu = resposta(sel,res);
+  registre.push({tipus:"jugada", npc:sel, intencio, frase, diu, deltes:res.deltes, oberts:res.oberts});
+  if (res.ruptura) registre.push({tipus:"esdeveniment", fort:true,
+    text:`${npc.nom} s'ha tancat per sempre. Has passat de ${npc.ruptura}.`});
+  palanca = null;
+  pinta();
+}
+
+document.addEventListener("click", ev => {
+  const t = ev.target.closest("button");
+  if (!t) return;
+  if (t.dataset.npc){ sel = t.dataset.npc; palanca = null; pinta(); }
+  else if (t.dataset.pal !== undefined){
+    palanca = t.dataset.pal || null;
+    if (!palanca) juga("PREGUNTAR"); else pinta();
+  }
+  else if (t.dataset.int) juga(t.dataset.int);
+  else if (t.id === "enrere"){ palanca = null; pinta(); }
+  else if (t.id === "gears"){ gears = !gears; t.setAttribute("aria-pressed", gears); pinta(); }
+  else if (t.id === "reinicia"){ nouMon(); pinta(); }
+});
+
+nouMon(); pinta();
+</script>
