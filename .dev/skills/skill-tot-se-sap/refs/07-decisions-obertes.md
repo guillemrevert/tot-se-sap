@@ -11,7 +11,7 @@ Actualitzat: 31-08-2026.
 | D2 | Esquema de dades (`docs/v0.md` §6) | 🟡 resolt **de facto** al codi, sense ratificar | tocar `content/` |
 | D3 | Quant estat veu el jugador | 🔴 contradicció viva | UX, i la regla 8 |
 | D4 | El refredament global | 🟡 decidit al codi, no al disseny | la regla 6 |
-| D5 | Entorn: git, dependències, com s'executa | 🔴 res decidit | tot |
+| D5 | Entorn: git, dependències, com s'executa | 🟡 F1 i F2 fetes (01-09-2026); falten llicències i CI | publicar |
 | D6 | Llengua de la capa `.dev/` | 🟢 català (assumit, no confirmat) | res urgent |
 | D7 | La finestra de `f_autoria` | 🔴 el cas **no és guanyable jugant a l'obvi** | jugar-hi |
 | D8 | Marc de proves | 🔴 no n'hi ha cap | el validador §15 |
@@ -64,16 +64,25 @@ causa traçable és que has deixat de pressionar. És defensable, però és una 
 regla 6 i **no està escrita a `docs/disseny.md`**. O s'escriu allí, o el refredament passa
 a ser només de l'NPC amb qui parles.
 
-## D5 — Entorn 🔴
+## D5 — Entorn 🟡
 
-Res d'açò està decidit i tot bloqueja:
+Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md).
 
-- **No hi ha repo git.** Ni historial, ni poder desfer, ni frontera de commit. Tota la
-  capa `.dev/` està pensada per a un repo.
-- **`pyyaml` no està declarat** enlloc (ni `requirements.txt`, ni `pyproject.toml`).
-- **`python` del PATH és l'àlies de la Microsoft Store** i no arranca; per això `jugar.bat`
-  apunta a la ruta absoluta de Python 3.13. Qualsevol altra màquina falla d'una altra manera.
-- Sense entorn virtual ni versió mínima escrita.
+**Fet l'01-09-2026 (F1 i F2):**
+
+- Repo git en `main`, amb `.gitattributes` (finals de línia) i `.gitignore`.
+- `.venv` + `requirements.txt`. `pyyaml` ja no depén de la instal·lació global.
+- `jugar.bat` ja no porta cap ruta d'esta màquina: tria el `.venv` o `py -3`.
+- Decidit: **aplicació, no llibreria** — res d'empaquetat. I **`unittest`**, no `pytest` (tanca D8).
+
+**Pendent:**
+
+- **Llicències** (dues: codi i contingut) i README — F4. És el que falta per a poder publicar.
+- **CI** — F5, i no dirà res fins que existisca el validador (F6).
+- Versió mínima de Python: es declararà al README (3.11) i l'ha de verificar la CI.
+- ⚠️ El llançador `py` està instal·lat però **no és al PATH**, i el `python` del PATH és
+  l'àlies de la Microsoft Store. Res del projecte ho necessita ja, però qualsevol ordre
+  escrita com a `python …` fallarà en esta màquina.
 
 ## D6 — Llengua de `.dev/` 🟢
 

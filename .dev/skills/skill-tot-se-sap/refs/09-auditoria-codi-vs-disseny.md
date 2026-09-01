@@ -106,6 +106,10 @@ llegint codi**:
 Sense repo git, sense `pyyaml` declarat, sense versió mínima de Python escrita, i amb un
 `jugar.bat` que depén d'una ruta absoluta d'esta màquina. → **D5**.
 
+> **Resolt en part l'01-09-2026**: repo, `.venv`, `requirements.txt` i `jugar.bat` portable.
+> Queden llicències, README i CI. Estat viu a **D5**; esta auditoria és una foto del 31-08 i
+> no s'actualitza.
+
 ## 🟢 A10 — El que sí que està bé
 
 - L'invariant es respecta: `motor/nucli.py` no conté ni una frase, i `sortida/` és l'única

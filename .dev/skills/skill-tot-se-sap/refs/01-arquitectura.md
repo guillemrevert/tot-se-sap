@@ -67,12 +67,15 @@ Els accents als identificadors de Python (`previsió`, `intenció`) són vàlids
 ## Arrancar
 
 ```bash
-python cli.py
+.venv/Scripts/python.exe cli.py
 ```
 
-`jugar.bat` fixa la consola en UTF-8 (`chcp 65001`) i apunta a
-`%LOCALAPPDATA%\Programs\Python\Python313\python.exe`, perquè el `python` del PATH a
-esta màquina és l'àlies de la Microsoft Store i no funciona. `cli.py` fa
-`sys.stdout.reconfigure(encoding="utf-8")` pel mateix motiu.
+`jugar.bat` fixa la consola en UTF-8 (`chcp 65001`) i tria el `python.exe` del `.venv` si
+existix, i `py -3` si no. `cli.py` fa `sys.stdout.reconfigure(encoding="utf-8")` pel mateix
+motiu de la consola.
 
-⚠️ La dependència `pyyaml` no està declarada en cap fitxer. Veure [`07`](07-decisions-obertes.md).
+⚠️ **`python` a seques no funciona en esta màquina**: el del PATH és l'àlies de la Microsoft
+Store. El llançador `py` està instal·lat però tampoc és al PATH. Per això tot passa pel
+`.venv`. Muntar-lo: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md) F2.
+
+Dependències: `pyyaml`, declarada a `requirements.txt`.

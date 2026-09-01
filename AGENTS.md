@@ -47,11 +47,16 @@ Detall: [`refs/03-motor.md`](.dev/skills/skill-tot-se-sap/refs/03-motor.md).
 
 ## Arrancar
 
+Cada dia: doble clic a `jugar.bat`, o bé
+
 ```bash
-python cli.py
+.venv/Scripts/python.exe cli.py
 ```
 
-A Windows: doble clic a `jugar.bat`. Dependències: `pyyaml` i prou. Provat amb Python 3.13.
+Muntar l'entorn la primera vegada (i per què `python` a seques no val en esta màquina):
+[`.dev/plans/2026-09-01-entorn.md`](.dev/plans/2026-09-01-entorn.md) F2.
+
+Dependències: `pyyaml` i prou, declarada a `requirements.txt`. Provat amb Python 3.13.
 
 Dins del joc: `n` canviar d'interlocutor · `f` el que ja saps · `c` **calibratge** (números
 crus, llindars pendents) · `q` eixir. El mode calibratge és l'única finestra al motor que hi ha.
@@ -80,9 +85,12 @@ crus, llindars pendents) · `q` eixir. El mode calibratge és l'única finestra 
 - `cli.py` — bucle de terminal. Provisional per definició.
 - Un canvi = una cosa. Si toques motor i contingut alhora, són dos canvis.
 
-⚠️ **Açò encara no és un repo git.** Fins que ho siga, la frontera de commit és una
-convenció i no una xarxa de seguretat. Decisió oberta a
-[`refs/07-decisions-obertes.md`](.dev/skills/skill-tot-se-sap/refs/07-decisions-obertes.md).
+És un repo git, branca `main`. **Un canvi = un commit**: si toques motor i contingut alhora,
+són dos commits. Missatge d'una línia, imperatiu, en valencià.
+
+⚠️ Encara **no hi ha remot, ni llicència, ni CI** — F4 i F5 de
+[`.dev/plans/2026-09-01-entorn.md`](.dev/plans/2026-09-01-entorn.md). Fins llavors açò és
+un repo local i prou.
 
 ---
 
