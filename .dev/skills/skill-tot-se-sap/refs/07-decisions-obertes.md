@@ -76,9 +76,16 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
 - Decidit: **aplicació, no llibreria** — res d'empaquetat, `requirements.txt` i prou.
   (La guia proposa `unittest` per a D8, però D8 no es tanca fins que es faça F3.)
 
+**Fet l'01-09-2026 (F4):**
+
+- **AGPL-3.0** per al codi, **CC BY-NC-SA 4.0** per a `content/` i `docs/`, i `TRADEMARK.md`
+  per al nom. El patró ix de CritKeep (AGPL + política de marca), no del que proposava la
+  guia, que deia MIT. Motiu: coherència entre projectes i copyleft fort sobre el motor.
+- README amb captura real del bucle, i CONTRIBUTING amb la cessió de drets per a contingut.
+
 **Pendent:**
 
-- **Llicències** (dues: codi i contingut) i README — F4. És el que falta per a poder publicar.
+- **Remot.** El repo és local: no s'ha publicat res encara.
 - **CI** — F5, i no dirà res fins que existisca el validador (F6).
 - Versió mínima de Python: es declararà al README (3.11) i l'ha de verificar la CI.
 - ⚠️ El llançador `py` està instal·lat però **no és al PATH**, i el `python` del PATH és

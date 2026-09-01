@@ -1,0 +1,69 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+(CC BY-NC-SA 4.0)
+
+Copyright (c) 2026 Guillem Reverter Falcó
+
+
+QUÈ COBRIX ESTA LLICÈNCIA
+─────────────────────────
+
+El contingut creatiu del projecte «Tot se sap», és a dir:
+
+  - content/     els casos: fets, NPCs, diàlegs, intencions i els seus números
+  - docs/        les notes de disseny
+
+El CODI FONT NO EL COBRIX ESTA LLICÈNCIA. El codi (motor/, sortida/, cli.py,
+proves/ i qualsevol altre fitxer executable) està sota la GNU Affero General
+Public License v3.0. Veure el fitxer LICENSE.
+
+El NOM «Tot se sap» i qualsevol logotip o il·lustració del projecte tampoc
+estan coberts per cap de les dues llicències. Veure el fitxer TRADEMARK.md.
+
+
+QUÈ POTS FER
+────────────
+
+  ✅ Jugar, llegir i compartir els casos
+  ✅ Adaptar-los, traduir-los i construir-hi damunt
+  ✅ Distribuir les teues versions
+
+  Sempre que:
+
+  - Cites l'autoria original i enllaces la llicència  (BY)
+  - No en faces un ús comercial                       (NC)
+  - Compartisques les teues versions sota esta mateixa llicència  (SA)
+
+
+QUÈ NO POTS FER
+───────────────
+
+  ❌ Vendre estos casos, ni sols ni dins d'un producte de pagament
+  ❌ Redistribuir-los sota una llicència més tancada
+  ❌ Llevar l'atribució
+
+
+TEXT LEGAL COMPLET
+──────────────────
+
+El text canònic i vinculant d'esta llicència, que és el que val en cas de
+dubte, està a:
+
+  https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+  https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca   (resum en català)
+
+Este fitxer és un avís de llicència, no una reproducció del text legal.
+
+
+NOTA PER A QUI VULGA CONTRIBUIR CONTINGUT
+──────────────────────────────────────────
+
+Si aportes un cas o un capítol, el cedixes sota esta mateixa llicència I A MÉS
+li concedixes al manteniment del projecte una llicència no exclusiva per a
+usar-lo també sota altres condicions, inclosa la comercial.
+
+No és burocràcia: sense eixe permís, un capítol escrit per un altre en NC
+queda blocat, perquè el «no comercial» també lligaria el projecte i ningú
+podria publicar mai una recopilació de pagament. Amb el permís, cada
+col·laborador conserva l'autoria i el projecte pot seguir avant.
+
+Detall a CONTRIBUTING.md.

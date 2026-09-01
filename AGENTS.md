@@ -88,7 +88,10 @@ crus, llindars pendents) · `q` eixir. El mode calibratge és l'única finestra 
 És un repo git, branca `main`. **Un canvi = un commit**: si toques motor i contingut alhora,
 són dos commits. Missatge d'una línia, imperatiu, en valencià.
 
-⚠️ Encara **no hi ha remot, ni llicència, ni CI** — F4 i F5 de
+Llicències: **AGPL-3.0** el codi, **CC BY-NC-SA 4.0** el contingut (`content/`, `docs/`), i
+el nom fora de les dues ([`TRADEMARK.md`](TRADEMARK.md)). Si afiges un fitxer, mira quina li toca.
+
+⚠️ Encara **no hi ha remot ni CI** — F5 de
 [`.dev/plans/2026-09-01-entorn.md`](.dev/plans/2026-09-01-entorn.md). Fins llavors açò és
 un repo local i prou.
 
