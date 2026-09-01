@@ -1,6 +1,7 @@
 # Tot se sap
 
 <p>
+  <a href="https://github.com/guillemrevert/tot-se-sap/actions/workflows/proves.yml"><img src="https://github.com/guillemrevert/tot-se-sap/actions/workflows/proves.yml/badge.svg" alt="Proves" /></a>
   <img src="https://img.shields.io/badge/codi-AGPL--3.0-blue.svg" alt="Llicència del codi" />
   <img src="https://img.shields.io/badge/contingut-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="Llicència del contingut" />
   <img src="https://img.shields.io/badge/estat-prototip-orange.svg" alt="Estat" />
@@ -76,7 +77,7 @@ sentir. Tret per confiança, és cert. No ho sabràs fins al final.
 ## Provar-lo
 
 ```bash
-git clone <aquest-repo> "tot-se-sap"
+git clone https://github.com/guillemrevert/tot-se-sap.git
 cd tot-se-sap
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements.txt   # Linux/macOS: .venv/bin/python
