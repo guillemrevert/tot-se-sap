@@ -73,7 +73,8 @@ Guia sencera: [`plans/2026-09-01-entorn.md`](../../../plans/2026-09-01-entorn.md
 - Repo git en `main`, amb `.gitattributes` (finals de línia) i `.gitignore`.
 - `.venv` + `requirements.txt`. `pyyaml` ja no depén de la instal·lació global.
 - `jugar.bat` ja no porta cap ruta d'esta màquina: tria el `.venv` o `py -3`.
-- Decidit: **aplicació, no llibreria** — res d'empaquetat. I **`unittest`**, no `pytest` (tanca D8).
+- Decidit: **aplicació, no llibreria** — res d'empaquetat, `requirements.txt` i prou.
+  (La guia proposa `unittest` per a D8, però D8 no es tanca fins que es faça F3.)
 
 **Pendent:**
 
